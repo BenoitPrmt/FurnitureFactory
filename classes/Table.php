@@ -14,7 +14,7 @@ class Table extends Furniture
     public function buildTable(): void
     {
         for ($i = 0; $i < self::TABLE_LEG_QUANTITY; ++$i) {
-            $this->components[] = new Component("Pied de table", 1234, 10, "Marron");
+            $this->components[] = new Component("Pied de table", 1234, 10, $this->getColor());
         }
         $this->components[] = new Component("Plateau", 98765, 30, $this->getColor());
     }

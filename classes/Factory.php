@@ -8,6 +8,8 @@ class Factory
     {
         if ($type === "table") {
             $this->inventory[] = new Table($data["name"], $data["reference"], $data["price"], $data["color"]);
+        } else if ($type === "chair") {
+            $this->inventory[] = new Chair($data["name"], $data["reference"], $data["price"], $data["color"]);
         }
     }
 
@@ -21,6 +23,18 @@ class Factory
         $total = 0;
         foreach ($this->inventory as $key => $value) {
             $total += $value->getPrice();
+        }
+        return $total;
+    }
+
+    public function calculateCurrentBenefit(): int
+    {
+        $total = $this->calculateCurrentValue();
+        foreach ($this->inventory as $key => $value) {
+            $components_data = $value->getFurnitureInventory();
+            foreach ($components_data as $item) {
+                $total -= $item->getPrice();
+            }
         }
         return $total;
     }
