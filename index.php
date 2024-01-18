@@ -1,13 +1,13 @@
 <?php
 
-class Factory {
+class Factory
+{
 
     public array $inventory;
 
     public function makeFurniture(string $type, array $data): void
     {
-        if ($type === "table")
-        {
+        if ($type === "table") {
             $this->inventory[] = new Table($data["name"], $data["reference"], $data["price"], $data["color"]);
         }
     }
@@ -15,6 +15,15 @@ class Factory {
     public function getInventory(): array
     {
         return $this->inventory;
+    }
+
+    public function calculateCurrentValue(): int
+    {
+        $total = 0;
+        foreach ($this->inventory as $key => $value) {
+            $total += $value->getPrice();
+        }
+        return $total;
     }
 
 }
@@ -199,5 +208,12 @@ $ikea->makeFurniture("table", [
     'price' => 100,
     'color' => "Marron"
 ]);
+$ikea->makeFurniture("table", [
+    'name' => "Table en bois",
+    'reference' => 5678,
+    'price' => 100,
+    'color' => "Marron"
+]);
 
 var_dump($ikea->getInventory());
+echo $ikea->calculateCurrentValue();
