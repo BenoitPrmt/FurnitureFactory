@@ -1,4 +1,5 @@
 <?php
+
 class Factory
 {
 
@@ -18,13 +19,9 @@ class Factory
         return $this->inventory;
     }
 
-    public function calculateCurrentValue(): int
+    public function countAllFurnitures(): int
     {
-        $total = 0;
-        foreach ($this->inventory as $key => $value) {
-            $total += $value->getPrice();
-        }
-        return $total;
+        return count($this->inventory);
     }
 
     public function calculateCurrentBenefit(): int
@@ -39,4 +36,12 @@ class Factory
         return $total;
     }
 
+    public function calculateCurrentValue(): int
+    {
+        $total = 0;
+        foreach ($this->inventory as $key => $value) {
+            $total += $value->getPrice();
+        }
+        return $total;
+    }
 }

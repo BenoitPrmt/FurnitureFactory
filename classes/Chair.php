@@ -1,8 +1,8 @@
 <?php
+
 class Chair extends Furniture
 {
     private const int CHAIR_LEG_QUANTITY = 4;
-    private const int SEAT_QUANTITY = 1;
 
     public function __construct(string $name, int $reference, int $price, string $color)
     {

@@ -1,4 +1,5 @@
 <?php
+
 class Component
 {
     public string $name;

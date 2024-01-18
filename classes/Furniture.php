@@ -1,4 +1,5 @@
 <?php
+
 class Furniture
 {
 
@@ -25,11 +26,6 @@ class Furniture
     public function __toString(): string
     {
         return "Nom: " . $this->getName() . "<br>Reference: " . $this->getReference() . "<br>Prix: " . $this->getPrice() . "<br>Couleur: " . $this->getColor() . "<br>";
-    }
-
-    public function getFurnitureInventory(): array
-    {
-        return $this->components;
     }
 
     public function getName(): string
@@ -70,5 +66,10 @@ class Furniture
     public function setColor(string $color): void
     {
         $this->color = $color;
+    }
+
+    public function getFurnitureInventory(): array
+    {
+        return $this->components;
     }
 }

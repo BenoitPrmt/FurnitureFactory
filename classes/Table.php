@@ -1,9 +1,8 @@
 <?php
+
 class Table extends Furniture
 {
     private const int TABLE_LEG_QUANTITY = 4;
-    private const int PLATE_QUANTITY = 1;
-
 
     public function __construct(string $name, int $reference, int $price, string $color)
     {

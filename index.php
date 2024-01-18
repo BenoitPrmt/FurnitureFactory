@@ -47,10 +47,8 @@ $ikea->makeFurniture("chair", [
 ]);
 
 //var_dump($ikea->getInventory());
+echo "<h1>Inventaire</h1>";
 
-
-echo "Valeur marchande de l'inventaire :<br>";
-echo $ikea->calculateCurrentValue();
-
-echo "<br> Bénéfice potentiel de l'inventaire :<br>";
-echo $ikea->calculateCurrentBenefit();
+echo "Valeur marchande : " . $ikea->calculateCurrentValue();
+echo "<br> Bénéfice potentiel : " . $ikea->calculateCurrentBenefit();
+echo "<br> Nombre d'articles : " . $ikea->countAllFurnitures();
